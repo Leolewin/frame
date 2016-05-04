@@ -3006,9 +3006,9 @@ input[type="button"].btn-block {
   float: left;
   min-width: 160px;
   padding: 5px 0;
-  margin: 2px 0 0;
+  margin: 2px -49px 0;
   list-style: none;
-  font-size: 14px;
+  font-size: 16px;
   background-color: #222222;
   border: 1px solid #444444;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -3631,7 +3631,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 50px;
+  min-height: 60px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
@@ -3726,13 +3726,32 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: 0;
   border-width: 1px 0 0;
 }
+
+
 .navbar-brand {
   float: left;
   padding: 15px 15px;
-  font-size: 18px;
   line-height: 20px;
-  height: 50px;
+  height: 60px;
+  margin-top: 0px;
 }
+
+.navbar-brand > img {
+  margin-top: -13px;
+  margin-left: -12px;
+  width: 140px;
+  height: 60px;
+  float: left;
+}
+.navbar-brand > h1 {
+  margin-top: 0px;
+  margin-left: 5px;
+  font-size: 25px;
+  height: 40px;
+  float: left;
+}
+
+
 .navbar-brand:hover,
 .navbar-brand:focus {
   text-decoration: none;
@@ -3776,7 +3795,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin: 7.5px -15px;
 }
 .navbar-nav > li > a {
-  padding-top: 10px;
+  padding-top: 20px;
   padding-bottom: 10px;
   line-height: 20px;
 }
@@ -3809,9 +3828,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
   .navbar-nav > li {
     float: left;
+    height: 50px;
+    font-size: 17px;
   }
   .navbar-nav > li > a {
-    padding-top: 15px;
+    padding-top: 20px;
     padding-bottom: 15px;
   }
   .navbar-nav.navbar-right:last-child {
@@ -3893,7 +3914,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-nav > li > .dropdown-menu {
-  margin-top: 0;
+  margin-top: 11px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
@@ -4028,6 +4049,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-inverse .navbar-nav > li > a {
   color: #BDBDBD;
 }
+
+.navbar-inverse .navbar-nav > li > a.dropdown-toggle {
+  height:65px;
+  font-size: 17px;
+}
+
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #ffffff;
@@ -5952,14 +5979,15 @@ table.tablesorter thead tr th:hover {
   .side-nav {
 	margin-left: -225px;
 	left: 225px;
-	width: 225px;
+	width: 190px;
 	position: fixed;
-	top: 50px;
+	top: 61px;
 	height: 100%;
 	border-radius: 0;
 	border: none;
 	background-color: #222222;
 	overflow-y: auto;
+    font-size: 16px;
   }
 
   /*menu overrides*/
@@ -5988,8 +6016,9 @@ table.tablesorter thead tr th:hover {
   }
 
   .side-nav>li>a {
-	width: 225px;
+	width: 190px;
   }
+
 
   .navbar-inverse .navbar-nav>li>a:hover,
   .navbar-inverse .navbar-nav>li>a:focus {
@@ -6022,8 +6051,8 @@ table.tablesorter thead tr th:hover {
 }
 .navbar-search
 {
-    padding-right: 27px;
-    padding-top: 7px;
+    padding-right: 0px;
+    padding-top: 11px;
 }
 
 /*Feed*/
