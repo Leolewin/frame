@@ -3799,6 +3799,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-bottom: 10px;
   line-height: 20px;
 }
+
+.navbar-nav > li > a.dropdown-toggle {
+  padding-top: 22px;
+  padding-bottom: 15px;
+}
+
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
     position: static;
@@ -3828,13 +3834,19 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
   .navbar-nav > li {
     float: left;
-    height: 50px;
+    height: 55px;
     font-size: 17px;
   }
   .navbar-nav > li > a {
     padding-top: 20px;
     padding-bottom: 15px;
   }
+
+  .navbar-nav > li > a.dropdown-toggle {
+    padding-top: 22px;
+    padding-bottom: 15px;
+  }
+
   .navbar-nav.navbar-right:last-child {
     margin-right: -15px;
   }
@@ -3914,10 +3926,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-nav > li > .dropdown-menu {
-  margin-top: 11px;
+  margin-top: 6px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
+
+.dropdown-menu > li > a > i.fa{
+  margin-left: -16px;
+}
+
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
@@ -6052,7 +6069,7 @@ table.tablesorter thead tr th:hover {
 .navbar-search
 {
     padding-right: 0px;
-    padding-top: 11px;
+    padding-top: 12px;
 }
 
 /*Feed*/
