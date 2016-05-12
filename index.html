@@ -8,6 +8,10 @@
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+
+    <!--table_css-->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-table.min.css">
+
     <link rel="stylesheet" type="text/css" href="./css/local.css" />
     <!--<link rel="stylesheet" type="text/css" href="css/style.css" />-->
 
@@ -15,12 +19,12 @@
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
-    <!--<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
     <link id="gridcss" rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css" />
 
-    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
--->
+    <script type="text/javascript" src="js/shiedlui.js"></script>
+    <script type="text/javascript" src="js/gridData.js"></script>
+
 </head>
 <body>
     <div id="wrapper">
@@ -40,9 +44,18 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul id="active" class="nav navbar-nav side-nav">
                     <!--链接要被改掉-->
-                    <li class="selected"><a href="index.html"><i class="fa fa-bullseye"></i> OEM Alerts</a></li>
-                    <li><a href="#"><i class="fa fa-tasks"></i> DB Workload</a></li>
-                    <li><a href="#"><i class="fa fa-globe"></i> DB Performance</a></li>
+                    <li class="selected"><a href="index.html"><i class="fa fa-bullseye"></i> Data Base</a></li>
+
+                    <li class="parent">
+                        <a href="#workload_ul" data-toggle="collapse"><i class="fa fa-tasks"></i> DB Workload</a>
+                        <ul id="workload_ul" class="navbar-nav collapse">
+                            <li id="workload_1" class="panel-collapse collapse in sec-nav"><a href="./view/subitem1.html"> Golden Gate</a></li>
+                            <li id="workload_2" class="panel-collapse collapse in sec-nav"><a href="#">subitem2</a></li>
+                            <li id="workload_3" class="panel-collapse collapse in sec-nav"><a href="#">subitem3</a></li>
+                            <li id="workload_4" class="panel-collapse collapse in sec-nav"><a href="#">subitem4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Server.html"><i class="fa fa-globe"></i> Server</a></li>
                     <li><a href="#"><i class="fa fa-list-ol"></i> SQL</a></li>
                     <li><a href="#"><i class="fa fa-font"></i> Business Metric</a></li>
                     <li><a href="#"><i class="fa fa-font"></i> Storage</a></li>
@@ -84,10 +97,10 @@
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                            <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                            <li class="profile"><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                            <li class="profile"><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
                             <li class="divider"></li>
-                            <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                            <li class="profile"><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
                     <!--<li class="divider-vertical"></li>-->
@@ -97,7 +110,112 @@
             </div>
         </nav>
 
-    </div>
+        <div id ="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-table"></i> Data Base Lists</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table oem-table" data-striped="true"
+                                   data-toggle="table" data-url="data/data1.json"
+                                   data-show-refresh="true" data-show-toggle="true" data-show-columns="true"
+                                   data-search="true" data-select-item-name="toolbar1" data-pagination="true"
+                                   data-sort-name="name" data-sort-order="desc" >
+                                <thead>
+                                <tr>
+                                    <th data-field="state" data-checkbox="true" >Item ID</th>
+                                    <th data-field="id" data-sortable="true">Item ID</th>
+                                    <th data-field="name"  data-sortable="true">Item Name</th>
+                                    <th data-field="price" data-sortable="true">Item Price</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.row-->
 
+
+            <!--<div class="row">-->
+                <!--<div class="col-md-12">-->
+                    <!--<div class="panel panel-primary">-->
+                        <!--<div class="panel-heading">-->
+                            <!--<h3 class="panel-title">-->
+                                <!--<i class="fa fa-bar-chart-o"></i>-->
+                                <!--Vistists based on a 10 Days data-->
+                            <!--</h3>-->
+                            <!--<div class="form-group-jiange">-->
+                                <!--<label class="selection1">SELECTS</label>-->
+                                <!--<select class="form-control">-->
+                                    <!--<option>1</option>-->
+                                    <!--<option>2</option>-->
+                                    <!--<option>3</option>-->
+                                    <!--<option>4</option>-->
+                                    <!--<option>5</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="panel-body">-->
+                            <!--<div class="row row-height">-->
+                                <!--<div class="col-md-4 row-chart-2" id="date_table">-->
+                                    <!--<div id="shieldui-chart1">&lt;!&ndash;这里用来绘制图表&ndash;&gt;</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-md-4 row-chart-2" id="date_table">-->
+                                    <!--<div id="shieldui-chart2">&lt;!&ndash;这里用来绘制图表&ndash;&gt;</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-md-4 row-chart-2" id="date_table">-->
+                                    <!--<div id="shieldui-chart3">&lt;!&ndash;这里用来绘制图表&ndash;&gt;</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="char_bar"></div>-->
+                            <!--<div class="row row-height">-->
+                                <!--<div class="col-md-4 row-chart-2" id="date_table">-->
+                                    <!--<div id="shieldui-chart4">&lt;!&ndash;这里用来绘制图表&ndash;&gt;</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-md-4 row-chart-2" id="date_table">-->
+                                    <!--<div id="shieldui-chart5">&lt;!&ndash;这里用来绘制图表&ndash;&gt;</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-md-4 row-chart-2" id="date_table">-->
+                                    <!--<div id="shieldui-chart6">&lt;!&ndash;这里用来绘制图表&ndash;&gt;</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        </div>
+    </div>
+<!--wrapper is finished-->
+    <script src="js/ckeckbox.js"></script>
+
+    <script src="bootstrap/js/bootstrap-table.min.js"></script>
+
+    <script type="text/javascript">
+        $('#table').bootstrapTable({
+            columns: [{
+                field: 'id',
+                title: 'Item ID'
+            },{
+                field: 'name',
+                title: 'Item Name'
+            },{
+                field: 'price',
+                title: 'Item Price'
+            }],
+            data: [{
+                id: 1,
+                name: 'Item 1',
+                price: '$1'
+            },{
+                id: 2,
+                name: 'Item 2',
+                price: '$4'
+            }]
+        });
+
+    </script>
 </body>
 </html>

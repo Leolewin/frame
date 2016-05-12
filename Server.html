@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DB Portal</title>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/local.css" />
+    <!--<link rel="stylesheet" type="text/css" href="css/style.css" />-->
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+    <link id="gridcss" rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css" />
+
+    <script type="text/javascript" src="js/shiedlui.js"></script>
+    <script type="text/javascript" src="js/gridData.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                <img id="logo" src="img/stubhub.png"/>
+                <h1>Admin Panel</h1>
+            </a>
+        </div>
+
+        <!--左侧导航栏-->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul id="active" class="nav navbar-nav side-nav">
+                <!--链接要被改掉-->
+                <li><a href="index.html"><i class="fa fa-bullseye"></i> Data Base</a></li>
+                <li class="parent">
+                    <a href="#workload_ul" data-toggle="collapse"><i class="fa fa-tasks"></i> DB Workload</a>
+                    <ul id="workload_ul" class="navbar-nav collapse">
+                        <li id="workload_1" class="panel-collapse collapse in sec-nav"><a href="./view/subitem1.html" > Golden Gate</a></li>
+                        <li id="workload_2" class="panel-collapse collapse in sec-nav"><a href="#">subitem2</a></li>
+                        <li id="workload_3" class="panel-collapse collapse in sec-nav"><a href="#">subitem3</a></li>
+                        <li id="workload_4" class="panel-collapse collapse in sec-nav"><a href="#">subitem4</a></li>
+                    </ul>
+                </li>
+                <li class="selected"><a href="Server.html"><i class="fa fa-globe"></i> Server</a></li>
+                <li><a href="#"><i class="fa fa-list-ol"></i> SQL</a></li>
+                <li><a href="#"><i class="fa fa-font"></i> Business Metric</a></li>
+                <li><a href="#"><i class="fa fa-font"></i> Storage</a></li>
+                <li><a href="#"><i class="fa fa-list-ol"></i> Backup</a></li>
+                <li><a href="#"><i class="fa fa-font"></i> Republication</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right navbar-user">
+                <!--<li class="dropdown messages-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">2 New Messages</li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <span class="avatar"><i class="fa fa-bell"></i></span>
+                                <span class="message">Security alert</span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <span class="avatar"><i class="fa fa-bell"></i></span>
+                                <span class="message">Security alert</span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>
+                    </ul>
+                </li>-->
+
+                <li>
+                    <form class="navbar-search">
+                        <input type="text" placeholder="Search" class="form-control">
+                    </form>
+                </li>
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user"></i>
+                        Steve Miller
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="profile"><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                        <li class="profile"><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                        <li class="divider"></li>
+                        <li class="profile"><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                    </ul>
+                </li>
+                <!--<li class="divider-vertical"></li>-->
+
+
+            </ul>
+        </div>
+        <!--左侧导航栏结束-->
+    </nav>
+
+    <div id ="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Dashboard<small>Statics and more</small></h1>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-users"></i> Server List</h3>
+                    </div>
+                    <div class="panel-body">
+                        <!--server 伸缩栏-->
+                        <div class="panel-group server-group" id="accordion">
+                            <div class="panel panel-default server-container">
+                                <div class="panel-heading form-inline">
+                                    <h4 class="panel-title server-title">
+                                        VDB Sever 1
+                                        <small>
+                                             Detial information to be published
+                                        </small>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                            <i class="glyphicon glyphicon-menu-left server-icon"></i>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse">
+                                    <div class="panel-body server-body">
+                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson
+                                        cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                                        vice lomo.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title server-title">
+                                        VDB Sever 2
+                                        <small>
+                                             Detial information to be published
+                                        </small>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                            <i class="glyphicon glyphicon-menu-left server-icon"></i>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse">
+                                    <div class="panel-body server-body">
+                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson
+                                        cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                                        vice lomo.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title server-title">
+                                        VDB Sever 3
+                                        <small>
+                                             Detial information to be published
+                                        </small>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                            <i class="glyphicon glyphicon-menu-left server-icon"></i>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse">
+                                    <div class="panel-body server-body">
+                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson
+                                        cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                                        vice lomo.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--伸缩栏完成-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--wrapper is finished-->
+
+<script>
+
+
+    $("i.server-icon").click(function () {
+//        var expand = $(this).parent().parent().parent().siblings("div.panel-collapse");
+
+        var arryExpand = $("div.panel-collapse.collapse");
+            $.each(arryExpand, function (i, item){
+                var icon =$(item).prev("div.panel-heading").find("i.server-icon");
+                setTimeout(function () {
+                    if ($(item).attr("aria-expanded") == "true") {
+                        $(icon).attr("class", "glyphicon glyphicon-menu-down server-icon");
+                    }else {
+                        $(icon).attr("class", "glyphicon glyphicon-menu-left server-icon");
+                    }
+                }, 1);
+            });
+    });
+
+</script>
+
+</body>
+</html>
